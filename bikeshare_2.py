@@ -8,6 +8,16 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 def get_filters():
+
+    """
+    Asks user to specify a city, month, and day to analyze.
+
+    Returns:
+        (str) city - name of the city to analyze
+        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    """
+
     print("\n\033[1;35mWelcome! Let's explore US BikeShare data! 🚴‍♂️\033[0m\n")
 
     cities = ['chicago', 'new york city', 'washington']
@@ -65,6 +75,17 @@ def get_filters():
 
 def load_data(city, month, day):
 
+    """
+    Loads data for the specified city and filters by month and day if applicable.
+
+    Args:
+        (str) city - name of the city to analyze
+        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    Returns:
+        df - Pandas DataFrame containing city data filtered by month and day
+    """
+
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time']) #✅
     df['month'] = df['Start Time'].dt.month_name() #✅  
@@ -80,6 +101,9 @@ def load_data(city, month, day):
     return df
 
 def time_stats(df):
+
+    """Displays statistics on the most frequent times of travel."""
+
     print("\n📅 Fetching the most common travel times", end="")
     loading_animation()
     print('\n📅 Most Frequent Travel Times:\n')
@@ -93,6 +117,9 @@ def time_stats(df):
     print('-'*50)
 
 def station_stats(df):
+
+    """Displays statistics on the most popular stations and trip."""
+
     print("\n⏳ Fetching the most popular stations and routes...", end="")
     loading_animation()
 
@@ -109,6 +136,9 @@ def station_stats(df):
     print('-'*50)
 
 def trip_duration_stats(df):
+
+    """Displays statistics on the total and average trip duration."""
+
     print("\n⏳ Calculating total and average trip duration...", end="")
     loading_animation()
 
@@ -125,6 +155,10 @@ def trip_duration_stats(df):
     print('-'*50)
 
 def user_stats(df):
+
+    """Displays statistics on bikeshare users."""
+
+
     print("\n📊 Gathering user demographic insights...", end="")
     loading_animation()
 
@@ -150,7 +184,10 @@ def user_stats(df):
     print(f"\n✅ Computed in {time.time() - start_time:.2f} seconds.")
     print('-' * 50)
 
-def display_raw_data(df):    
+def display_raw_data(df):
+
+    """Displays raw data for the user to explore."""
+
     i = 0
     while True:
         show_data = input("\nWould you like to see raw data? Enter 'yes' to continue or anything else to skip: ").strip().lower()
