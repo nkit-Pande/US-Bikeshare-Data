@@ -102,7 +102,11 @@ def load_data(city, month, day):
 
 def time_stats(df):
 
-    """Displays statistics on the most frequent times of travel."""
+    """
+    Displays statistics on the most frequent times of travel.
+    Args:
+        (DataFrame)df: Dataframe containing data for the selected city and filters(months/days).
+    """
 
     print("\n📅 Fetching the most common travel times", end="")
     loading_animation()
@@ -118,7 +122,12 @@ def time_stats(df):
 
 def station_stats(df):
 
-    """Displays statistics on the most popular stations and trip."""
+    """
+    Displays statistics on the most popular stations and trip.
+    Args:
+        (DataFrame)df: Dataframe containing data for the selected city and filters(months/days).
+    """
+
 
     print("\n⏳ Fetching the most popular stations and routes...", end="")
     loading_animation()
@@ -137,7 +146,11 @@ def station_stats(df):
 
 def trip_duration_stats(df):
 
-    """Displays statistics on the total and average trip duration."""
+    """
+    Displays statistics on the total and average trip duration.
+    Args:
+        (DataFrame)df: Dataframe containing data for the selected city and filters(months/days).
+    """
 
     print("\n⏳ Calculating total and average trip duration...", end="")
     loading_animation()
@@ -156,7 +169,11 @@ def trip_duration_stats(df):
 
 def user_stats(df):
 
-    """Displays statistics on bikeshare users."""
+    """
+    Displays statistics on bikeshare users.
+    Args:
+        (DataFrame)df: Dataframe containing data for the selected city and filters(months/days).
+    """
 
 
     print("\n📊 Gathering user demographic insights...", end="")
@@ -186,7 +203,11 @@ def user_stats(df):
 
 def display_raw_data(df):
 
-    """Displays raw data for the user to explore."""
+    """
+    Displays raw data for the user to explore.
+    Args:
+        (DataFrame)df: Dataframe containing data for the selected city and filters(months/days).
+    """
 
     i = 0
     while True:
